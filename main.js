@@ -252,9 +252,10 @@ function randomString() {
 var form = document.getElementById("suggestion-box");
     
 async function handleSubmit(event) {
-  if (document.querySelector('textarea').value == "") return (
-    document.getQuerySelector(` p[id="required"] `).textContent = "This field is required!"
-  )
+  if (document.querySelector('textarea').value == "") {
+    document.querySelector(` p[id="required"] `).textContent = "This field is required!";
+    return;
+  }
   event.preventDefault();
   var status = document.getElementById("status-indicator");
   var data = new FormData(event.target);
