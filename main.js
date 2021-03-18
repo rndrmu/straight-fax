@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.getElementById('stringsbtn').addEventListener('click', () => {
   document.getElementById('stringsDisplay').innerHTML = randomString().fact;
+  randomString().source == undefined ? console.log(true) : document.getElementById('stringsDisplaysrc').innerHTML = randomString().source
 
 });
 
@@ -251,6 +252,9 @@ function randomString() {
 var form = document.getElementById("suggestion-box");
     
 async function handleSubmit(event) {
+  if (document.querySelector('textarea').value == "") return (
+    document.getQuerySelector(` p[id="required"] `).textContent = "This field is required!"
+  )
   event.preventDefault();
   var status = document.getElementById("status-indicator");
   var data = new FormData(event.target);
